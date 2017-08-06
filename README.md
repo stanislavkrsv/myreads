@@ -6,6 +6,7 @@ Built during [Udacity React Nanodegree Program](https://www.udacity.com/course/r
 
  ![](http://zaptrade.ru/screenshots/i/0822d8705a94d3d4b7f8fb2a2d38.gif)
 
+
 ## Getting Started
 
 ```shell

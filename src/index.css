@@ -1,0 +1,435 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html, body, .root {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+}
+body, .app {
+  background: white;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+/* main page */
+
+.list-books-title {
+  padding: 10px 0;
+  background: #16a085;
+  text-align: center;
+}
+.list-books-title h1 {
+  font-weight: 400;
+  margin: 0;
+  color: white;
+}
+
+.list-books-content {
+  padding: 0 0 80px;
+  flex: 1;
+}
+
+
+/* Placeholder */
+.list-books-placeholder {
+  padding: 0 10px 20px;
+}
+
+@media (min-width: 600px) {
+  .list-books-placeholder {
+    padding: 0 20px 40px;
+  }
+}
+.list-books-placeholder-title {
+  width: 100%;
+  margin: 1.5em 0 1.4em 0;
+  border-bottom: 1px solid #F0F0F0;
+  height: 2.4em;
+  background: url('./images/placeholder-title.svg') no-repeat 0 0;
+}
+.book-placeholder {
+  width: 140px;
+  height: 240px;
+  background: url('./images/placeholder-book.svg') no-repeat 0 0;
+}
+@media (max-width: 600px) {
+  .book-placeholder-additional {
+    display: none;
+  }
+}
+.book-info {
+  width: 350px;
+  position: absolute;
+  //background: rgba(255, 0, 0, 0.49);
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #000;
+  min-height: 240px;
+  top: 0;
+  margin-left: -200px;
+  z-index: 1;
+  font-size: 12px;
+  line-height: normal;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+/* bookshelf */
+.bookshelf {
+  padding: 0 10px 20px;
+}
+
+@media (min-width: 600px) {
+  .bookshelf {
+    padding: 0 20px 40px;
+  }
+}
+
+.bookshelf-empty {
+  padding-top: 40px;
+  font-size: 1.1em;
+}
+.bookshelf-title {
+  border-bottom: 1px solid #dedede;
+  color: #34495e;
+}
+.bookshelf-books {
+  text-align: center;
+}
+
+.open-search {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 10;
+}
+.open-search a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #399035;
+  background-image: -o-linear-gradient(-89deg, #B2E868 0%, #399035 100%);
+  background-image: -moz-linear-gradient(-89deg, #B2E868 0%, #399035 100%);
+  background-image: -ms-linear-gradient(-89deg, #B2E868 0%, #399035 100%);
+  background-image: linear-gradient(-179deg, #B2E868 0%, #399035 100%);
+  box-shadow: 0px 4px 15px 0px rgba(73,83,95,0.4);
+  font-size: 0;
+  transition: all .3s;
+}
+
+.open-search a:hover {
+  background-image: -o-linear-gradient(-89deg, #B2E868 0%, #399035 80%);
+  background-image: -moz-linear-gradient(-89deg, #B2E868 0%, #399035 80%);
+  background-image: -ms-linear-gradient(-89deg, #B2E868 0%, #399035 80%);
+  background-image: linear-gradient(-179deg, #B2E868 0%, #399035 80%);
+  box-shadow: 0px 4px 8px 0px rgba(73,83,95,0.4);
+
+}
+
+.open-search a:after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  background-image: url('./icons/add.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 28px;
+
+}
+/* search page */
+
+.search-books-bar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  display: flex;
+  box-shadow: 0px 5px 25px rgba(46,61,73,0.15);
+}
+.search-books-input-wrapper {
+  flex: 1;
+  background: #e9e;
+}
+.search-books-bar input {
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 1.25em;
+  border: none;
+  outline: none;
+}
+
+.close-search {
+  display: block;
+  top: 20px;
+  left: 15px;
+  width: 50px;
+  height: 53px;
+  background: white;
+  background-image: url('./icons/arrow-back.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  font-size: 0;
+}
+
+.search-books-animation {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 53px;
+  background: #fff url('./icons/search.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+
+}
+
+.search-books-results {
+  padding: 80px 10px 20px;
+}
+
+.search-books-is-searching {
+  opacity: 0.5;
+}
+.search-books-is-searching:after {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  top:60px;
+}
+
+.search-books-empty-results {
+  padding-left: 10px;
+}
+.search-books-empty-results ul {
+  margin-top: 0;
+  margin-left: 0;
+  padding-left: 20px;
+}
+
+/* books grid */
+
+.books-grid {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.books-grid li {
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.book {
+  width: 140px;
+  transition: all .9s;
+}
+.book-title,
+.book-authors {
+  font-size: 0.8em;
+}
+.book-title {
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+.book-authors {
+  color: #999;
+}
+
+.book-top {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.book:hover .book-shelf-changer {
+  z-index: 3;
+}
+.book-shelf-changer {
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #399035;
+  background-image: -o-linear-gradient(-89deg, #B2E868 0%, #399035 100%);
+  background-image: -moz-linear-gradient(-89deg, #B2E868 0%, #399035 100%);
+  background-image: -ms-linear-gradient(-89deg, #B2E868 0%, #399035 100%);
+  background-image: linear-gradient(-179deg, #B2E868 0%, #399035 100%);
+  box-shadow: 0px 4px 20px 0px rgba(73,83,95,0.34);
+}
+
+.book-shelf-changer:hover {
+  background-image: -o-linear-gradient(-89deg, #B2E868 0%, #399035 80%);
+  background-image: -moz-linear-gradient(-89deg, #B2E868 0%, #399035 80%);
+  background-image: -ms-linear-gradient(-89deg, #B2E868 0%, #399035 80%);
+  background-image: linear-gradient(-179deg, #B2E868 0%, #399035 80%);
+  box-shadow: 0px 4px 15px 0px rgba(73,83,95,0.34);
+}
+
+.book-shelf-changer:before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  background-image: url('./icons/arrow-drop-down.svg');
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+}
+/*
+background-image: -o-linear-gradient(-89deg, #B2E868 0%, #399035 100%);
+  background-image: -moz-linear-gradient(-89deg, #B2E868 0%, #399035 100%);
+  background-image: -ms-linear-gradient(-89deg, #B2E868 0%, #399035 100%);
+  background-image: linear-gradient(-179deg, #B2E868 0%, #399035 100%);
+  -moz-box-shadow:    0px 7px 15px 0px rgba(73,83,95,0.34);
+  box-shadow:         0px 7px 15px 0px rgba(73,83,95,0.34);
+
+*/
+
+.book-shelf-changer select {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* book cover */
+.book:hover .book-cover, .book:hover .book-cover-default {
+  z-index: 2;
+}
+.book-cover, .book-cover-default {
+  box-shadow: 0 3px 16px rgba(0,0,0,0.2);
+  background: #eee;
+  width: 128px;
+  height: 193px;
+}
+.book-cover-title {
+  padding: 20px 10px 0;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.book-cover-default {
+  background-image: -o-linear-gradient(-45deg, #1273A0 0%, #AFE668 100%);
+  background-image: -moz-linear-gradient(-45deg, #1273A0 0%, #AFE668 100%);
+  background-image: -ms-linear-gradient(-45deg, #1273A0 0%, #AFE668 100%);
+  background-image: linear-gradient(-135deg, #1273A0 0%, #AFE668 100%);
+  color: #fff;
+  box-sizing: border-box;
+  padding: 15px 3px;
+  line-height: normal;
+  text-align: center;
+  overflow: hidden;
+
+}
+
+.book-cover-default-author {
+  display: block;
+  font-size: 0.7em;
+  padding-bottom: 10px;
+}
+
+.book-update-active > .book-cover:after,
+.book-update-active > .book-cover-default:after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8) url('./icons/search.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  width: 128px;
+  height: 193px;
+  top:7px;
+  left: 0;
+
+}
+
+/* Book rating */
+.book-rating {
+  overflow: hidden;
+  height: 18px
+}
+.book-rating span {
+  display: none;
+}
+.book-rating:after {
+  content: '';
+  position: absolute;
+  width: 90px;
+  height: 18px;
+  overflow: hidden;
+  background: url('./icons/star.svg') no-repeat;
+  background-position: -108px 0;
+}
+/* 0.5 */
+.book-rating-0-5:after {
+  background-position: -90px 0;
+}
+/* 1 */
+.book-rating-1:after {
+  background-position: -90px -22px;
+}
+/* 1.5 */
+.book-rating-1-5:after {
+  background-position: -72px 0;
+}
+/* 2 */
+.book-rating-2:after {
+  background-position: -72px -22px;
+}
+/* 2.5 */
+.book-rating-2-5:after {
+  background-position: -54px 0;
+}
+/* 3 */
+.book-rating-3:after {
+  background-position: -54px -22px;
+}
+
+/* 3.5 */
+.book-rating-3-5:after {
+  background-position: -36px 0;
+}
+/* 4 */
+.book-rating-4:after {
+  background-position: -36px -22px;
+}
+
+/* 4.5 */
+.book-rating-4-5:after {
+  background-position: -18px 0;
+}
+/* 5 */
+.book-rating-5:after {
+  background-position: -18px -22px;
+}
