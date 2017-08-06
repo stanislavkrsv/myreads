@@ -4,7 +4,7 @@
 MyReads is app that allows users to select and categorize books they have read, are currently reading, or want to read. 
 Built during [Udacity React Nanodegree Program](https://www.udacity.com/course/react-nanodegree--nd019)
 
-[Live demo](myreads-nd.surge.sh)
+[Live demo](http://myreads-nd.surge.sh)
 
 
  ![](http://zaptrade.ru/screenshots/i/0822d8705a94d3d4b7f8fb2a2d38.gif)
